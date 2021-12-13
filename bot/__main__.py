@@ -52,7 +52,7 @@ def stats(update, context):
             f'<b>├  🔼 Total Upload : {sent}</b>\n' \
             f'<b>├  🔽 Total Download : {recv}</b>\n' \
             f'<b>├  🖥️ CPU : {cpuUsage}%</b>\n' \
-            f'<b>├  🎮 RAM : {memory}%</b>\n' \
+            f'<b>├  🎮 RAM : {mem_p}%\n' \
             f'<b>├  💽 DISK : {disk}%</b>\n' \
             f'<b>├  〓 Physical Cores : </b> {p_core}\n' \
             f'<b>├  🔶 Total Cores : </b> {t_core}\n\n' \
@@ -74,13 +74,9 @@ def start(update, context):
 This bot can mirror all your links to Google Drive!
 Type /{BotCommands.HelpCommand} to get a list of available commands
 '''
-    if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
-        if update.message.chat.type == "private" :
-            sendMessage(f"I'm Awake Already! 🙂\nHaven't Slept Since: <code>{uptime}</code>", context.bot, update)
-        else :
-            sendMarkup(IMAGE_URL, start_string, context.bot, update, reply_markup)
-    else :
-        sendMarkup(f"Oops! You Are Not Authorized To Use Me.</b>.", context.bot, update, reply_markup)
+        sendMarkup(start_string, context.bot, update, reply_markup)
+    else:
+        sendMarkup('Oops! You Are Not Authorized To Use Me.', context.bot, update, reply_markup)
 
 def restart(update, context):
     restart_message = sendMessage("Restarting...", context.bot, update)
