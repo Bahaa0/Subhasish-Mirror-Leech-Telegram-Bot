@@ -61,7 +61,7 @@ def stats(update, context):
             f'<b>├  ⛱ Memory Free : </b> {mem_a}\n' \
             f'<b>├  ⚖ Memory Used : </b> {mem_u}\n' \
             f'<b>│</b>\n' \
-            f'<b>╰──「 🚸 @Subhasish_bot 🚸 」</b>'
+            f'<b>╰──「 🚸 @Subhasish_bot 🚸 」</b>\n' \
     sendMessage(stats, context.bot, update)
 
 
@@ -71,7 +71,7 @@ def start(update, context):
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
-This bot can mirror all your links to Google Drive!
+Hey I'm Alive 🙂 I Can mirror all your links to Google Drive!
 Type /{BotCommands.HelpCommand} to get a list of available commands
 '''
         sendMarkup(start_string, context.bot, update, reply_markup)
