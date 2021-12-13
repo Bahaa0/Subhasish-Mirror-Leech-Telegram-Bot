@@ -55,7 +55,7 @@ def stats(update, context):
             f'<b>├  🎮 RAM : {memory}%</b>\n' \
             f'<b>├  💽 DISK : {disk}%</b>\n' \
             f'<b>│</b>\n' \
-            f'<b>╰──「 🚸 @AT_BOTs 🚸 」</b>'
+            f'<b>╰──「 🚸 @Subhasish_bot 🚸 」</b>'
     sendMessage(stats, context.bot, update)
 
     
@@ -65,8 +65,9 @@ def start(update, context):
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
-Hey I'm Alive 🙂 I Can mirror all your links to Google Drive!
-Type /{BotCommands.HelpCommand} to get a list of available commands
+Hey! I'm Alive.. 🙂 
+I Can mirror all your links to Google Drive!
+Type /{BotCommands.HelpCommand} to get a list of available commands.
 '''
         sendMarkup(start_string, context.bot, update, reply_markup)
     else:
