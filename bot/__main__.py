@@ -52,19 +52,13 @@ def stats(update, context):
             f'<b>├  🔼 Total Upload : {sent}</b>\n' \
             f'<b>├  🔽 Total Download : {recv}</b>\n' \
             f'<b>├  🖥️ CPU : {cpuUsage}%</b>\n' \
-            f'<b>├  🎮 RAM : {mem_p}%\n' \
+            f'<b>├  🎮 RAM : {memory}%</b>\n' \
             f'<b>├  💽 DISK : {disk}%</b>\n' \
-            f'<b>├  〓 Physical Cores : </b> {p_core}\n' \
-            f'<b>├  🔶 Total Cores : </b> {t_core}\n\n' \
-            f'<b>├  ☘ SWAP : </b> {swap_t} | ⚡ <b>Used : </b> {swap_p}%\n' \
-            f'<b>├  ☢ Memory Total : </b> {mem_t}\n' \
-            f'<b>├  ⛱ Memory Free : </b> {mem_a}\n' \
-            f'<b>├  ⚖ Memory Used : </b> {mem_u}\n' \
             f'<b>│</b>\n' \
-            f'<b>╰──「 🚸 @Subhasish_bot 🚸 」</b>'
+            f'<b>╰──「 🚸 @AT_BOTs 🚸 」</b>'
     sendMessage(stats, context.bot, update)
-    update.effective_message.reply_photo(IMAGE_URL, stats, parse_mode=ParseMode.HTML)
 
+    
 def start(update, context):
     buttons = button_build.ButtonMaker()
     buttons.buildbutton("My Master", "https://t.me/idsubhasish")
