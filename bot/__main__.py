@@ -61,9 +61,9 @@ def stats(update, context):
             f'<b>├  ⛱ Memory Free : </b> {mem_a}\n' \
             f'<b>├  ⚖ Memory Used : </b> {mem_u}\n' \
             f'<b>│</b>\n' \
-            f'<b>╰──「 🚸 @Subhasish_bot 🚸 」</b>\n'
+            f'<b>╰──「 🚸 @Subhasish_bot 🚸 」</b>'
     sendMessage(stats, context.bot, update)
-
+    update.effective_message.reply_photo(IMAGE_URL, stats, parse_mode=ParseMode.HTML)
 
 def start(update, context):
     buttons = button_build.ButtonMaker()
