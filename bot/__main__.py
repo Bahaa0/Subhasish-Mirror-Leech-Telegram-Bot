@@ -53,9 +53,9 @@ def stats(update, context):
             f'<b>├  🔽 Total Download : {recv}</b>\n' \
             f'<b>├  🖥️ CPU : {cpuUsage}%</b>\n' \
             f'<b>├  💽 DISK : {disk}%</b>\n' \
-            f'<b>├  〓 Physical Cores : </b> {p_core}\n' \
+            f'<b>├  🔳 Physical Cores : </b> {p_core}\n' \
             f'<b>├  🔶 Total Cores : </b> {t_core}\n\n' \
-            f'<b>├  ☘ SWAP : </b> {swap_t} | ⚡ <b>Used : </b> {swap_p}%\n' \
+            f'<b>├  ☘ SWAP : </b> {swap_t} |⚡ <b>Used : </b> {swap_p}%\n' \
             f'<b>├  ☢ Memory Total : </b> {mem_t}\n' \
             f'<b>├  ⛱ Memory Free : </b> {mem_a}\n' \
             f'<b>├  ⚖ Memory Used : </b> {mem_u}\n' \
