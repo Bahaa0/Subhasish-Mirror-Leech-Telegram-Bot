@@ -15,7 +15,7 @@ def list_buttons(update, context):
     try:
         key = update.message.text.split(" ", maxsplit=1)[1]
     except IndexError:
-        return sendMessage('Send a search key along with command', context.bot, update)
+        return sendMessage('<b> Opps</b> 🤦 \n\n<b>How to search? </b>\n\n<b>🔎 Example:</b> <code>/find Money Heist</code>', context.bot, update)
     buttons = button_build.ButtonMaker()
     buttons.sbutton("Drive Root", f"types {user_id} root")
     buttons.sbutton("Recursive", f"types {user_id} recu")
@@ -60,7 +60,7 @@ def list_drive(key, bmsg, list_method, item_type):
     if button:
         editMessage(msg, bmsg, button)
     else:
-        editMessage(f'No result found for <i>{key}</i>', bmsg)
+        editMessage(f'<b>No result found for</b> <i>{key}</i>', bmsg)
 
 
 list_handler = CommandHandler(BotCommands.ListCommand, list_buttons, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
