@@ -63,7 +63,7 @@ def stats(update, context):
             f'<b>╰──「 🚸 @Subhasish_bot 🚸 」</b>'
     sendMessage(stats, context.bot, update)
 
-    
+
 def start(update, context):
     buttons = button_build.ButtonMaker()
     buttons.buildbutton("My Master", "https://t.me/idsubhasish")
@@ -75,7 +75,7 @@ I Can Mirror & Leech All Your Links Along With Google Drive Links! 🙃
 '''
         sendMarkup(start_string, context.bot, update, reply_markup)
     else:
-        sendMarkup('Oops! You Are Not Authorized To Use Me.', context.bot, update, reply_markup)
+        sendMarkup('Oops! You Are Not Authorized To Use Me. 🐸', context.bot, update, reply_markup)
 
 def restart(update, context):
     restart_message = sendMessage("Restarting...", context.bot, update)
@@ -166,7 +166,7 @@ help_string_telegraph = f'''<br>
 '''
 
 help = telegraph.create_page(
-        title='Mirror-Leech-Bot Help',
+        title= 'Subhasish-Cloud-Mirror-Bot Help',
         content=help_string_telegraph,
     )["path"]
 
