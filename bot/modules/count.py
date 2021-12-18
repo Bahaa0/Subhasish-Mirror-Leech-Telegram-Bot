@@ -35,12 +35,12 @@ def countNode(update, context):
         else:
             uname = f'<a href="tg://user?id={update.message.from_user.id}">{update.message.from_user.first_name}</a>'
         if uname is not None:
-            cc = f'\n\n<b>cc: </b>{uname}'
+            cc = f'\n\n<b> 🙂 Link Owner: </b>{uname}'
         sendMessage(result + cc, context.bot, update)
         if gdtot_link:
             gd.deletefile(link)
     else:
-        sendMessage('Send Gdrive link along with command or by replying to the link by command', context.bot, update)
+        sendMessage('<b>Send Gdrive link along with command or by replying to the link by command</b>', context.bot, update)
 
 count_handler = CommandHandler(BotCommands.CountCommand, countNode, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
 dispatcher.add_handler(count_handler)
