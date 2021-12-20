@@ -70,7 +70,8 @@ def start(update, context):
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
-Hey! I'm Alive.. 🙂
+
+<b>Hey! I'm Alive.. 🙂</b>
 
 I Can Mirror & Leech All Your Links Along With Google Drive Links with multiple features support! 🙃
 
@@ -79,18 +80,8 @@ I Can Mirror & Leech All Your Links Along With Google Drive Links with multiple 
     else:
         sendMarkup('<b>Opps you need to /donate some amount to use meh 🐸👀</b>', context.bot, update, reply_markup)
 
-def bot_donate(update, context):
-    buttons = button_build.ButtonMaker()
-    buttons.buildbutton("🍄⬛ Mirror & Leech Group", "https://t.me/subhasishcloudmirror")
-    reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
-    if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
-        donate_string = f'''
-<b>test😊</b>
-Type /{BotCommands.HelpCommand} to get a list of available commands.
-'''
-        sendMarkup(donate_string, context.bot, update, reply_markup)
-    else:
-        sendMarkup('<b>Opps you need to /donate some amount to use meh 🐸👀</b>', context.bot, update, reply_markup)
+def donate(update, context):
+    reply = sendMessage("testing....", context.bot, update)
 
 def restart(update, context):
     restart_message = sendMessage("Restarting...", context.bot, update)
