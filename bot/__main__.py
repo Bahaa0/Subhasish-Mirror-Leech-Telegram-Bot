@@ -67,7 +67,7 @@ def stats(update, context):
 def start(update, context):
     buttons = button_build.ButtonMaker()
     buttons.buildbutton("My Master", "https://t.me/idsubhasish")
-    reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
+    reply_markup = InlineKeyboardMarkup(buttons.build_menu(1))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
 
@@ -78,7 +78,7 @@ I Can Mirror & Leech All Your Links Along With Google Drive Links with multiple 
 '''
         sendMarkup(start_string, context.bot, update, reply_markup)
     else:
-        sendMarkup('<b>Opps you need to /donate some amount to use meh 🐸👀</b>', context.bot, update, reply_markup)
+        sendMarkup('<b>Opps you need to donate some amount to use meh 🐸👀\n\nDonate to @Subhasish_bot</b>', context.bot, update, reply_markup)
 
 def donate(update, context):
     reply = sendMessage("testing....", context.bot, update)
