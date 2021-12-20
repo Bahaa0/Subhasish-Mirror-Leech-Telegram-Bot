@@ -28,9 +28,9 @@ class AriaDownloadHelper:
                         gdrive = GoogleDriveHelper()
                         smsg, button = gdrive.drive_list(sname, True)
                         if smsg:
-                            dl.getListener().onDownloadError('<b>File/Folder already available in Drive</b>.\n\n')
+                            dl.getListener().onDownloadError('File/Folder already available in Drive.\n\n')
                             api.remove([download], force=True)
-                            sendMarkup("Here are the search results:", dl.getListener().bot, dl.getListener().update, button)
+                            sendMarkup("<b>Here are the search results:</b>", dl.getListener().bot, dl.getListener().update, button)
                             return
                 if dl is not None and (ZIP_UNZIP_LIMIT is not None or TORRENT_DIRECT_LIMIT is not None):
                     sleep(1)
