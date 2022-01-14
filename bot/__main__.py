@@ -13,7 +13,7 @@ from telegram import ParseMode, InlineKeyboardMarkup
 from telegram.ext import CommandHandler
 
 from wserver import start_server_async
-from bot import bot, app, dispatcher, updater, botStartTime, IGNORE_PENDING_REQUESTS, TIMEZONE, RESTARTED_GROUP_ID, RESTARTED_GROUP_ID2, IS_VPS, PORT, alive, web, OWNER_ID, AUTHORIZED_CHATS, LOGGER, Interval, nox
+#from bot import bot, app, dispatcher, updater, botStartTime, IGNORE_PENDING_REQUESTS, TIMEZONE, RESTARTED_GROUP_ID, RESTARTED_GROUP_ID2, IS_VPS, PORT, alive, web, OWNER_ID, AUTHORIZED_CHATS, LOGGER, Interval, nox
 from bot.helper.ext_utils import fs_utils
 from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.message_utils import sendMessage, sendMarkup, editMessage, sendLogFile
@@ -22,6 +22,11 @@ from .helper.ext_utils.bot_utils import get_readable_file_size, get_readable_tim
 from .helper.telegram_helper.filters import CustomFilters
 from bot.helper.telegram_helper import button_build
 from .modules import authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval, delete, speedtest, count, leech_settings, search
+from bot import (AUTHORIZED_CHATS, CHANNEL_LINK, IGNORE_PENDING_REQUESTS,
+                 IS_VPS, LOGGER, OWNER_ID, PORT, RESTARTED_GROUP_ID,
+                 RESTARTED_GROUP_ID2, SUPPORT_LINK, TIMEZONE, alive, app, bot,
+                 botStartTime, dispatcher, nox, updater, web)
+
 
 now = datetime.now(pytz.timezone(f'{TIMEZONE}'))
  
