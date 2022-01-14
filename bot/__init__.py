@@ -303,6 +303,22 @@ try:
 except KeyError:
     ZIP_UNZIP_LIMIT = None
 try:
+    RSS_CHAT_ID = getConfig('RSS_CHAT_ID')
+    if len(RSS_CHAT_ID) == 0:
+        raise KeyError
+    else:
+        RSS_CHAT_ID = int(RSS_CHAT_ID)
+except KeyError:
+    RSS_CHAT_ID = None
+try:
+    RSS_DELAY = getConfig('RSS_DELAY')
+    if len(RSS_DELAY) == 0:
+        raise KeyError
+    else:
+        RSS_DELAY = int(RSS_DELAY)
+except KeyError:
+    RSS_DELAY = 900
+try:
     BUTTON_FOUR_NAME = getConfig('BUTTON_FOUR_NAME')
     BUTTON_FOUR_URL = getConfig('BUTTON_FOUR_URL')
     if len(BUTTON_FOUR_NAME) == 0 or len(BUTTON_FOUR_URL) == 0:
