@@ -246,11 +246,11 @@ def main():
     # Heroku restarted
     GROUP_ID = f'{RESTARTED_GROUP_ID}'
     kie = datetime.now(pytz.timezone(f'{TIMEZONE}'))
-    jam = kie.strftime('\n📅 𝘿𝘼𝙏𝙀: %d/%m/%Y\n⏲️ 𝙏𝙄𝙈𝙀: %I:%M%P')
+    jam = kie.strftime('\n📆 <b>DATE:</b> %d/%m/%Y\n⏰ <b>TIME:</b> %I:%M%P')
     if GROUP_ID is not None and isinstance(GROUP_ID, str):
         try:
             dispatcher.bot.sendMessage(
-                f"{GROUP_ID}", f"♻️ 𝐁𝐎𝐓 𝐆𝐎𝐓 𝐑𝐄𝐒𝐓𝐀𝐑𝐓𝐄𝐃 ♻️\n{jam}\n\n🗺️ 𝙏𝙄𝙈𝙀 𝙕𝙊𝙉𝙀\n{TIMEZONE}\n\n𝙿𝙻𝙴𝙰𝚂𝙴 𝚁𝙴-𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝙰𝙶𝙰𝙸𝙽\n\n#Restarted")
+                f"{GROUP_ID}", f"💠 <b>BOT GOT RESTARTED</b> 💠\n{jam}\n\n🕗 <b>TIME ZONE</b>\n{TIMEZONE}\n\n𝙿𝙻𝙴𝙰𝚂𝙴 𝚁𝙴-𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝙰𝙶𝙰𝙸𝙽\n\n#Restarted")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
