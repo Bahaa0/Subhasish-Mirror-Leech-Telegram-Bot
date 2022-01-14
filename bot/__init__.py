@@ -1,6 +1,7 @@
 import logging
 import os
 import threading
+import pytz
 import time
 import subprocess
 import requests
@@ -373,6 +374,19 @@ try:
     IGNORE_PENDING_REQUESTS = IGNORE_PENDING_REQUESTS.lower() == 'true'
 except KeyError:
     IGNORE_PENDING_REQUESTS = False
+try:
+    TIMEZONE = getConfig('TIMEZONE')
+    if len(TIMEZONE) == 0:
+        TIMEZONE = None
+except KeyError:
+    TIMEZONE = 'Asia/Kolkata'
+try:
+    RESTARTED_GROUP_ID = getConfig('RESTARTED_GROUP_ID')
+    if len(RESTARTED_GROUP_ID) == 0:
+        RESTARTED_GROUP_ID = None
+except KeyError:
+    RESTARTED_GROUP_ID = '-1001519439818'
+
 try:
     BASE_URL = getConfig('BASE_URL_OF_BOT')
     if len(BASE_URL) == 0:
