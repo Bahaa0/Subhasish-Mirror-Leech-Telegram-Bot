@@ -1,7 +1,6 @@
 import logging
 import os
 import threading
-import pytz
 import time
 import subprocess
 import requests
@@ -303,21 +302,23 @@ try:
 except KeyError:
     ZIP_UNZIP_LIMIT = None
 try:
-    RSS_CHAT_ID = getConfig('RSS_CHAT_ID')
-    if len(RSS_CHAT_ID) == 0:
-        raise KeyError
-    else:
-        RSS_CHAT_ID = int(RSS_CHAT_ID)
+    TIMEZONE = getConfig('TIMEZONE')
+    if len(TIMEZONE) == 0:
+        TIMEZONE = None
 except KeyError:
-    RSS_CHAT_ID = None
+    TIMEZONE = 'Asia/Kolkata'
 try:
-    RSS_DELAY = getConfig('RSS_DELAY')
-    if len(RSS_DELAY) == 0:
-        raise KeyError
-    else:
-        RSS_DELAY = int(RSS_DELAY)
+    RESTARTED_GROUP_ID = getConfig('RESTARTED_GROUP_ID')
+    if len(RESTARTED_GROUP_ID) == 0:
+        RESTARTED_GROUP_ID = None
 except KeyError:
-    RSS_DELAY = 900
+    RESTARTED_GROUP_ID = '-1001519439818'
+try:
+    RESTARTED_GROUP_ID2 = getConfig('RESTARTED_GROUP_ID2')
+    if len(RESTARTED_GROUP_ID2) == 0:
+        RESTARTED_GROUP_ID2 = None
+except KeyError:
+    RESTARTED_GROUP_ID2 = '-1001519439818'    
 try:
     BUTTON_FOUR_NAME = getConfig('BUTTON_FOUR_NAME')
     BUTTON_FOUR_URL = getConfig('BUTTON_FOUR_URL')
@@ -390,18 +391,6 @@ try:
     IGNORE_PENDING_REQUESTS = IGNORE_PENDING_REQUESTS.lower() == 'true'
 except KeyError:
     IGNORE_PENDING_REQUESTS = False
-try:
-    TIMEZONE = getConfig('TIMEZONE')
-    if len(TIMEZONE) == 0:
-        TIMEZONE = None
-except KeyError:
-    TIMEZONE = 'Asia/Kolkata'
-try:
-    RESTARTED_GROUP_ID = getConfig('RESTARTED_GROUP_ID')
-    if len(RESTARTED_GROUP_ID) == 0:
-        RESTARTED_GROUP_ID = None
-except KeyError:
-    RESTARTED_GROUP_ID = '-1001519439818'
 try:
     BASE_URL = getConfig('BASE_URL_OF_BOT')
     if len(BASE_URL) == 0:
