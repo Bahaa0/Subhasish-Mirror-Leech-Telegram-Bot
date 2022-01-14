@@ -386,7 +386,6 @@ try:
         RESTARTED_GROUP_ID = None
 except KeyError:
     RESTARTED_GROUP_ID = '-1001519439818'
-
 try:
     BASE_URL = getConfig('BASE_URL_OF_BOT')
     if len(BASE_URL) == 0:
