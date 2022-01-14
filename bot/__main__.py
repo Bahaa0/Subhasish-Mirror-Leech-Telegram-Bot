@@ -1,11 +1,8 @@
-import shutil, psutil
 import signal
 import os
-import asyncio
-import time
-from datetime import datetime
-import subprocess
 import pytz
+import psutil
+from datetime import datetime
 
 from pyrogram import idle
 from sys import executable
@@ -13,7 +10,8 @@ from telegram import ParseMode, InlineKeyboardMarkup
 from telegram.ext import CommandHandler
 
 from wserver import start_server_async
-from bot import bot, app, dispatcher, updater, botStartTime, IGNORE_PENDING_REQUESTS, TIMEZONE, RESTARTED_GROUP_ID, IS_VPS, PORT, alive, web, OWNER_ID, AUTHORIZED_CHATS, LOGGER, Interval, nox
+from bot.helper.ext_utils import fs_utils
+from bot import bot, app, dispatcher, updater, botStartTime, IGNORE_PENDING_REQUESTS, IS_VPS, RESTARTED_GROUP_ID, TIMEZONE, RESTARTED_GROUP_ID2, PORT, alive, web, OWNER_ID, AUTHORIZED_CHATS, LOGGER, Interval, nox
 from bot.helper.ext_utils import fs_utils
 from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.message_utils import sendMessage, sendMarkup, editMessage, sendLogFile
@@ -23,9 +21,8 @@ from .helper.telegram_helper.filters import CustomFilters
 from bot.helper.telegram_helper import button_build
 from .modules import authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval, delete, speedtest, count, leech_settings, search
 
-
 now = datetime.now(pytz.timezone(f'{TIMEZONE}'))
- 
+
 
 def stats(update, context):
     currentTime = get_readable_time(time.time() - botStartTime)
@@ -268,7 +265,7 @@ def main():
     if os.path.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        bot.edit_message_text("𝚁𝚎𝚜𝚝𝚊𝚛𝚝𝚎𝚍 𝚜𝚞𝚌𝚌𝚎𝚜𝚜𝚏𝚞𝚕𝚕𝚢!", chat_id, msg_id)
+        bot.edit_message_text("Restarted successfully!", chat_id, msg_id)
         os.remove(".restartmsg")
 
     start_handler = CommandHandler(BotCommands.StartCommand, start, run_async=True)
@@ -288,7 +285,8 @@ def main():
     dispatcher.add_handler(stats_handler)
     dispatcher.add_handler(log_handler)
     updater.start_polling(drop_pending_updates=IGNORE_PENDING_REQUESTS)
-    LOGGER.info("⚠️ If Any optional vars not be filled it will use Defaults vars")
+    LOGGER.info(
+        "⚠️ If Any optional vars not be filled it will use Defaults vars")
     LOGGER.info("📶 Bot Started!")
     signal.signal(signal.SIGINT, fs_utils.exit_clean_up)
 
